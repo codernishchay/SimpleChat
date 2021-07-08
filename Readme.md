@@ -18,4 +18,4 @@
 # Technology to be used : 
 ### Go or Node in backend. 
 ### React or Flutter in frontend. 
-### We will use restApis for communication. 
+### We will use restApis for communication

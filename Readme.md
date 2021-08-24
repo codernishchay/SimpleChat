@@ -8,8 +8,7 @@
 
 ## Final Goal : 
 ### End to End encrypted chat 
-### chat to be stored encrypted in database 
-### Anonymous chat facility like omegle. 
+### chat to be stored encrypted in database  
 ### Authenticated users can also chat stayin Anonymous. 
 ### Chat to be stored locally in some local database like sqlflite. 
 

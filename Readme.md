@@ -2,7 +2,7 @@
 # added video call and chat feature using websockets and webrtc in backend.. 
 # frontend in development 
 
-#  Small Projec
+#  Small Project
  
 
 ## initial goal : 

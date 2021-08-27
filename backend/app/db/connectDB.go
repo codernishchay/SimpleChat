@@ -19,7 +19,7 @@ func DBConnect() *mongo.Client {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb+srv://nishi:V7aITb2ycJRIA6Jo@cluster0.zjfve.mongodb.net/golang?retryWrites=true&w=majority"))
 	if err != nil {
 		panic(err)
 	}

@@ -1,22 +1,21 @@
 
-import VideoComponent from "./videoComponent";
-
 function VideoFull (){
     return (
-        <div className="p-3 bg-blue-900">
-            <div className="bg-pink-400">
-                 <VideoComponent>
-                     <video></video>
-                 </VideoComponent>
-            </div>
-            <div>
-                <VideoComponent>
-                    <video></video>
-                </VideoComponent>
+        <div>
+        
+        <div></div>
+        <div className="bg-red-500 flex flex-row h-screen w-full">
+            <div className="w-1/2 h-full bg-gray-700">
 
             </div>
+            <div className="w-1/2 h-full bg-green">
+
+            </div>
+        
 
         </div>
+        </div>
+
     )
 }
 

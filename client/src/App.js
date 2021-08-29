@@ -1,12 +1,17 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import ChatComponent from './components/ChatComponent';
+import TopNavBar from './components/topNavBar';
 import VideoFull from './components/videoFull';
 
 function App() {
   return (
-    <div className="App">
-      <VideoFull></VideoFull>
-    </div>
+   <div>
+  <TopNavBar/>
+ <VideoFull/>
+   </div>
+  
   );
 }
 

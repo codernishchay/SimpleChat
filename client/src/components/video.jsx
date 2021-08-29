@@ -8,11 +8,16 @@ const Room = (props) => {
     const webSocketRef = useRef();
 
     const openCamera = async () => {
-        const cameras = await navigator.mediaDevices.getUserMedia.deviceId || navigator.mediaDevices.enumerateDevices.deviceId;
-            const constraints = {
+        const allDevices = await navigator.mediaDevices.enumerateDevices();
+        const cameras = allDevices.filter(
+            (device) => device.kind == "videoinput"
+        );
+        console.log(cameras);
+
+        const constraints = {
             audio: true,
             video: {
-                deviceId: cameras,
+                deviceId: cameras[1].deviceId,
             },
         };
 
@@ -29,7 +34,7 @@ const Room = (props) => {
             userStream.current = stream;
 
             webSocketRef.current = new WebSocket(
-                `ws://localhost:8080/join?roomID=${props.match.params.roomID}`
+                `ws://localhost:8000/join?roomID=${props.match.params.roomID}`
             );
 
             webSocketRef.current.addEventListener("open", () => {
@@ -100,7 +105,7 @@ const Room = (props) => {
     const createPeer = () => {
         console.log("Creating Peer Connection");
         const peer = new RTCPeerConnection({
-            iceServers: [{ urls: "stun:stun2.l.google.com:19302" }],
+            iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
         });
 
         peer.onnegotiationneeded = handleNegotiationNeeded;
@@ -140,14 +145,9 @@ const Room = (props) => {
 
     return (
         <div>
-            <div>
             <video autoPlay controls={true} ref={userVideo}></video>
-       
-            </div>
-            <div>
-                   <video autoPlay controls={true} ref={partnerVideo}></video>
-       </div>
-          </div>
+            <video autoPlay controls={true} ref={partnerVideo}></video>
+        </div>
     );
 };
 

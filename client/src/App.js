@@ -1,18 +1,20 @@
-
-import './App.css';
-import TopNavBar from './components/topNavBar';
-
-import VideoFull from './components/videoFull';
-
+import React,{useState} from 'react';
+import {BrowserRouter, Route, Switch } from "react-router-dom"; 
 import CreateRoom from './components/createVideoCallButton';
+import Room from './components/video';
 function App() {
-  const str = <div> <CreateRoom/></div>
-  return (
+   const button = <div>	<BrowserRouter><Switch><Route path="/" exact component={CreateRoom}></Route></Switch></BrowserRouter></div>
+   return (
    <div>
-  <TopNavBar/>
-    <VideoFull children={str} />
-   </div>
-  
+    <div className="App">
+		<BrowserRouter>
+			<Switch>
+				<Route path="/" exact component={CreateRoom}></Route>
+				<Route path="/room/:roomID" component={Room}></Route>
+			</Switch>
+		</BrowserRouter>
+	</div>
+   </div>  
   );
 }
 

@@ -1,17 +1,16 @@
 
 import './App.css';
-
-import ChatComponent from './components/ChatComponent';
 import TopNavBar from './components/topNavBar';
-import VideoComponent from './components/videoComponent';
+
 import VideoFull from './components/videoFull';
 
+import CreateRoom from './components/createVideoCallButton';
 function App() {
- 
+  const str = <div> <CreateRoom/></div>
   return (
    <div>
   <TopNavBar/>
-   <VideoFull>  </VideoFull>
+    <VideoFull children={str} />
    </div>
   
   );

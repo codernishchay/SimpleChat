@@ -1,9 +1,9 @@
 
 
-function VideoComponent(){
+function VideoComponent(props){
     return (
         <div className="bg-pink-400 h-1/2">
-            <div>Hello ther</div>
+            <div>{props.child}</div>
         <video></video>
         </div>
     )

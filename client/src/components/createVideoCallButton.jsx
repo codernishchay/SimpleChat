@@ -5,9 +5,9 @@ const CreateRoom = (props) => {
         e.preventDefault();
 
         const resp = await fetch("http://localhost:8080/create");
-        const { room_id } = await resp.json();
+        const { roomID} = await resp.json();
 
-		props.history.push(`/room/${room_id}`)
+		props.history.push(`/room/${roomID}`)
     };
 
     return (

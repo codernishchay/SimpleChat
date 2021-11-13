@@ -1,13 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import VideoFull from './components/videoFull';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import CreateRoom from "./components/createRoom";
+import Room from "./components/room";
 
 function App() {
-  return (
-    <div className="App">
-      <VideoFull></VideoFull>
-    </div>
-  );
+    return <div className="App">
+		<BrowserRouter>
+			<Switch>
+				<Route path="/" exact component={CreateRoom}></Route>
+				<Route path="/room/:roomID" component={Room}></Route>
+			</Switch>
+		</BrowserRouter>
+	</div>;
 }
 
 export default App;

@@ -9,7 +9,6 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-// AllRooms is the global hashmap for the server
 var AllRooms RoomMap
 
 // CreateRoomRequestHandler Create a Room and return roomID
@@ -18,7 +17,7 @@ func CreateRoomRequestHandler(c *gin.Context) {
 	roomID := AllRooms.CreateRoom()
 
 	type resp struct {
-		RoomID string `json:"room_id"`
+		RoomID string `json:"roomID"`
 	}
 
 	log.Println(AllRooms.Map)

@@ -2,7 +2,7 @@ package app
 
 import (
 	"backend/app/controllers"
-	"backend/app/db"
+
 	"fmt"
 
 	"github.com/gin-gonic/gin"
@@ -10,10 +10,7 @@ import (
 
 func App() {
 	fmt.Println("This is app ")
-	db := db.DBConnect()
-	if db != nil {
-		fmt.Println("db is live")
-	}
+
 	controllers.AllRooms.Init()
 	fmt.Println("Hello interview Service")
 	router := gin.Default()

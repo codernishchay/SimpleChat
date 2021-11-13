@@ -1,18 +1,15 @@
 package controllers //
 
 import (
-	"backend/app/db"
-
 	"fmt"
 	"log"
 
 	"github.com/go-playground/validator"
-	"go.mongodb.org/mongo-driver/mongo"
 
 	"golang.org/x/crypto/bcrypt"
 )
 
-var userCollection *mongo.Collection = db.OpenCollection(db.Client, "user")
+// var userCollection *mongo.Collection = db.OpenCollection(db.Client, "user")
 var validate = validator.New()
 
 func HashPassword(password string) string {

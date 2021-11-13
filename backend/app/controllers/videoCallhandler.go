@@ -11,7 +11,6 @@ import (
 
 var AllRooms RoomMap
 
-// CreateRoomRequestHandler Create a Room and return roomID
 func CreateRoomRequestHandler(c *gin.Context) {
 	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 	roomID := AllRooms.CreateRoom()
@@ -55,7 +54,6 @@ func broadcaster() {
 	}
 }
 
-// JoinRoomRequestHandler will join the client in a particular room
 func JoinRoomRequestHandler(c *gin.Context) {
 	roomID, ok := c.Request.URL.Query()["roomID"]
 
@@ -71,6 +69,8 @@ func JoinRoomRequestHandler(c *gin.Context) {
 
 	AllRooms.InsertIntoRoom(roomID[0], false, ws)
 
+	defer ws.Close()
+
 	go broadcaster()
 
 	for {
@@ -79,6 +79,8 @@ func JoinRoomRequestHandler(c *gin.Context) {
 		err := ws.ReadJSON(&msg.Message)
 		if err != nil {
 			log.Fatal("Read Error: ", err)
+
+			break
 		}
 
 		msg.Client = ws
